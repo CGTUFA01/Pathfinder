@@ -1,0 +1,10 @@
+const attractions ={
+    image: "/GGBRIDGE.jpg",
+    category: "Landmark",
+    price: "Free",
+    name: "Golden Gate Bridge",
+    location: "San Francisco",
+    state: "CA",
+    description:
+      "An iconic suspension bridge known for its sweeping views of the San Francisco Bay.",
+  }

@@ -1,0 +1,167 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Roboto:wght@400;500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f3f4f6; /* lighter gray for modern feel */
+}
+
+.details-page-wrapper {
+  max-width: 900px; /* limits page content width */
+  margin: 0 auto;   /* centers content */
+  padding: 20px;
+}
+
+.details-image-wrapper {
+  text-align: center; /* centers the image */
+  margin: 20px 0;
+}
+
+.details-image {
+  width: 100%;       /* fills wrapper width */
+  max-width: 800px;  /* stops it from getting too big */
+  height: auto;      /* keeps aspect ratio */
+  display: block;    /* removes inline spacing issues */
+  border-radius: 12px;
+}
+
+.price-filter{
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 170px;
+  transition: all ease-in-out .5s;
+  margin-right: -2rem;
+
+}
+
+
+.price-filter-wrapper{
+  display: flex;
+}
+.price-filter-label{
+  color: black;
+  margin-right: 13px;
+  position: relative;
+  top:3px;
+}
+.multi-select{
+  width: 300px;
+}
+
+.filter-wrapper{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  background-color: white;
+  height: 90px;
+}
+
+.category-wrapper{
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 500px;
+  margin-top: 13px;
+  overflow-y: default; 
+}
+
+.price-wrapper{
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 150x;
+  margin-top: 13px;
+}
+
+.city-wrapper{
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 500px;
+  margin-top: 13px;
+}
+
+.attraction-header{
+  height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+ 
+}
+
+.header-content{
+  position: relative;
+  z-index: 10;
+  top: 100px;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+
+.attraction-header-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* you can adjust between 100–700 */
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.3px;
+
+}
+
+.attraction-header-text{
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  margin: 0.4rem 0;
+  line-height: 1.6;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.attraction-header-line{
+  width: 800px;
+  height: 1px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.Featured-Attractions{
+  background-color: white;
+}
+
+.Featured-Title-Wrapper{
+  position: relative;
+  top: 20px;
+  margin-left: 50px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.Featured-Data{
+  display: flex;
+  flex-wrap: wrap;
+  gap:0px;
+  justify-content: center;
+}
+

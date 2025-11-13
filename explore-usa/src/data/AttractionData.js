@@ -1,0 +1,61 @@
+const attractionsData = {
+  Kentucky: [
+    {
+      id: 1,
+      name: "Louisville Slugger Museum & Factory",
+      city: "Louisville",
+      state: "Kentucky",
+      category: "Travel",
+      price: "Free",
+      rating: 4.8,
+      description: "A museum dedicated to baseball’s most iconic bat, featuring exhibits and factory tours.",
+      image: "https://images.unsplash.com/photo-1518199266791-7c7c04f5b7db?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 2,
+      name: "Churchill Downs",
+      city: "Louisville",
+      state: "Kentucky",
+      category: "Events",
+      price: "$",
+      rating: 4.7,
+      description: "Home of the Kentucky Derby, offering tours and race‑day experiences.",
+      image: "https://images.unsplash.com/photo-1518199266791-7c7c04f5b7db?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 3,
+      name: "Mammoth Cave National Park",
+      city: "Mammoth Cave",
+      state: "Kentucky",
+      category: "Outdoors",
+      price: "$$",
+      rating: 4.9,
+      description: "The world’s longest cave system, offering guided tours and hiking trails.",
+      image: "https://images.unsplash.com/photo-1496167117683-f5861960e661?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 4,
+      name: "Kentucky Bourbon Trail",
+      city: "Bardstown",
+      state: "Kentucky",
+      category: "Travel",
+      price: "$$$",
+      rating: 4.6,
+      description: "Tour famous distilleries and learn about the history of bourbon in Kentucky.",
+      image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 5,
+      name: "Red River Gorge",
+      city: "Slade",
+      state: "Kentucky",
+      category: "Outdoors",
+      price: "Free",
+      rating: 4.8,
+      description: "Popular rock climbing and hiking area with stunning natural bridges.",
+      image: "https://images.unsplash.com/photo-1518684079-0c8a35994149?auto=format&fit=crop&w=800&q=80",
+    },
+  ]
+};
+
+export default attractionsData;
