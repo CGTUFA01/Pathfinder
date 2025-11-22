@@ -4,7 +4,7 @@ import FeaturedCard from './FeaturedCard';
 export default function Featured({selectedState}){
     const StartData = attractionsData[selectedState]
 
-    const FeaturedData = StartData.filter((item) => (item.id===1 || item.id===2 || item.id===3 ))
+    const FeaturedData = StartData.filter((item) => (item.id===1 || item.id===2 || item.id===3 || item.id ==4 || item.id ==5 ))
     return(
     <div className='Featured-Attractions'>
         <div className='Featured-Title-Wrapper'>
@@ -13,7 +13,7 @@ export default function Featured({selectedState}){
         </div>
 
         <div className='Featured-Data'>
-            {FeaturedData.map((item) => (<FeaturedCard key={item.id} attraction={item} state={selectedState}/>))}
+            {FeaturedData.map((item) => (<FeaturedCard key={item.id} attraction={item} state={selectedState} />))}
         
         </div>
 

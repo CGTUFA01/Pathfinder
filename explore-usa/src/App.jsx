@@ -15,11 +15,14 @@ function App() {
   const [selectedCity, setSelectedCity] = useState("Any");
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState("Any");
+  const [searchTerm, setSearchTerm] = useState(''); 
+
   return (
     <>
         <Header selectedState={selectedState} setSelectedState={setSelectedState}/>
 
         <Featured selectedState={selectedState}/>
+        <hr/>
         <Filter
           selectedCity={selectedCity}
           setSelectedCity={setSelectedCity}
@@ -27,13 +30,16 @@ function App() {
           setSelectedCategory={setSelectedCategory}
           selectedPrice={selectedPrice}
           setSelectedPrice={setSelectedPrice}
-          state={selectedState} // optional if you need cities by state
+          state={selectedState} 
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
         />
         <Body
           selectedState={selectedState}
           selectedCity={selectedCity}
           selectedCategory={selectedCategory}
           selectedPrice={selectedPrice}
+          searchTerm={searchTerm}
         />
    </> 
    

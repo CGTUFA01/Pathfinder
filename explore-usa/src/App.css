@@ -27,65 +27,10 @@ body {
   border-radius: 12px;
 }
 
-.price-filter{
-  font-family: inherit;
-  font-size: inherit;
-  background-color: #f4f2f2;
-  color: #646464;
-  padding: 0.7rem 1rem;
-  border-radius: 30px;
-  width: 170px;
-  transition: all ease-in-out .5s;
-  margin-right: -2rem;
-
-}
-
-
-.price-filter-wrapper{
-  display: flex;
-}
-.price-filter-label{
-  color: black;
-  margin-right: 13px;
-  position: relative;
-  top:3px;
-}
-.multi-select{
-  width: 300px;
-}
-
-.filter-wrapper{
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: center;
-  background-color: white;
-  height: 90px;
-}
-
-.category-wrapper{
-  margin-right: 1rem;
-  margin-left: 1rem;
-  width: 500px;
-  margin-top: 13px;
-  overflow-y: default; 
-}
-
-.price-wrapper{
-  margin-right: 1rem;
-  margin-left: 1rem;
-  width: 150x;
-  margin-top: 13px;
-}
-
-.city-wrapper{
-  margin-right: 1rem;
-  margin-left: 1rem;
-  width: 500px;
-  margin-top: 13px;
-}
 
 .attraction-header{
   height: 600px;
+  background-size: 90%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -161,7 +106,15 @@ body {
 .Featured-Data{
   display: flex;
   flex-wrap: wrap;
-  gap:0px;
   justify-content: center;
 }
 
+.body-wrapper{
+  background-color: white;
+}
+
+.Featured-Title{
+  font-family:'Vend Sans', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+}

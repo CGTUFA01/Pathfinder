@@ -1,4 +1,4 @@
-import Kentucky from '/src/images/Kentucky.avif'
+import Kentucky from '/src/images/Kentucky.png'
 export default function Header({selectedState}){
 
     return(
@@ -6,8 +6,10 @@ export default function Header({selectedState}){
         className="attraction-header"
         style={{
         backgroundImage: `url(${Kentucky})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundSize: "70%",
+        backgroundPosition: "center 35%",
+      
+
     }}
     > 
     <div className="overlay"></div>

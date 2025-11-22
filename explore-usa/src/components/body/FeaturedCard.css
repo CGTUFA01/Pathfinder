@@ -1,12 +1,5 @@
-.small-card-wrapper {
-  display: flex;
-  justify-content: center;
-  padding:10px;
-  flex-wrap: wrap; /* allows cards to wrap on smaller screens */
-}
-
 .small-card {
-  width: 430px;
+  width: 330px;
   height: 500px;
   background-color: #fff;
   border-radius: 16px;
@@ -44,7 +37,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 .small-card-category {
