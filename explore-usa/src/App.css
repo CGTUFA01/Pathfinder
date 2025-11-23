@@ -111,10 +111,20 @@ body {
 
 .body-wrapper{
   background-color: white;
+  padding-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 .Featured-Title{
   font-family:'Vend Sans', 'Inter', sans-serif;
   font-weight: 600;
   font-size: 40px;
+}
+
+.pagination-wrapper {
+  margin-bottom: 5rem;
+  padding-bottom: 2rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }

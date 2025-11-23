@@ -3,7 +3,7 @@ import Heart from "/src/components/body/Heart.jsx";
 import location_symbol from "/location.svg";
 import GGBRIDGE from '/GGBRIDGE.jpg'
 import './FeaturedCard.css'
-export default function FeaturedCard({ attraction,state }) {
+export default function FeaturedCard({ attraction, state, isFavorite, onToggleFavorite }) {
   
   return (
   
@@ -12,7 +12,7 @@ export default function FeaturedCard({ attraction,state }) {
         <div className="small-card-image">
           <img src={GGBRIDGE} />
 
-          <Heart/>
+          <Heart isFavorite={isFavorite} onToggle={onToggleFavorite}/>
     
 
         </div>

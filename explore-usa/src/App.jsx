@@ -16,12 +16,29 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState("Any");
   const [searchTerm, setSearchTerm] = useState(''); 
+  const [favorites, setFavorites] = useState(new Set());
+
+  const toggleFavorite = (attractionId) => {
+    setFavorites(prev => {
+      const newFavorites = new Set(prev);
+      if (newFavorites.has(attractionId)) {
+        newFavorites.delete(attractionId);
+      } else {
+        newFavorites.add(attractionId);
+      }
+      return newFavorites;
+    });
+  };
 
   return (
     <>
         <Header selectedState={selectedState} setSelectedState={setSelectedState}/>
 
-        <Featured selectedState={selectedState}/>
+        <Featured 
+          selectedState={selectedState}
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
+        />
         <hr/>
         <Filter
           selectedCity={selectedCity}
@@ -40,6 +57,8 @@ function App() {
           selectedCategory={selectedCategory}
           selectedPrice={selectedPrice}
           searchTerm={searchTerm}
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
         />
    </> 
    

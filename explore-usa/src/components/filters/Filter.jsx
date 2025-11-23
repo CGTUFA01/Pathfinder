@@ -2,7 +2,7 @@ import Price_Filter from '/src/components/filters/Price_filter.jsx';
 import CityFilter from "/src/components/filters/City_filter.jsx";
 import Category_filter from '/src/components/filters/Category_filter.jsx';
 import SearchBar from '/src/components/filters/Search_Bar.jsx';
-import './Filter.css'
+import './filter.css'
 export default function Filter({selectedCity,
           setSelectedCity,
           selectedCategory,

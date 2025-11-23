@@ -3,7 +3,7 @@ import Heart from "/src/components/body/Heart.jsx";
 import location_symbol from "/location.svg";
 import './card.css'  
 import GGBRIDGE from '/GGBRIDGE.jpg'
-export default function Card({ attraction ,state}) {
+export default function Card({ attraction, state, isFavorite, onToggleFavorite }) {
     
   return (
     <div className="card-wrapper">   
@@ -13,7 +13,7 @@ export default function Card({ attraction ,state}) {
           <img src={GGBRIDGE} />
             
         <div>
-            <Heart/>
+            <Heart isFavorite={isFavorite} onToggle={onToggleFavorite}/>
         </div>
         </div>
         

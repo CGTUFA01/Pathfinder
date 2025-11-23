@@ -7,7 +7,9 @@ export default function Body({selectedState,
           selectedCity,
           selectedCategory,
           selectedPrice,
-          searchTerm}) 
+          searchTerm,
+          favorites,
+          toggleFavorite}) 
     
     {
     let attractions = attractionsData[selectedState]
@@ -43,7 +45,13 @@ export default function Body({selectedState,
       {currentAttractions.length > 0 ? (
         <>
           {currentAttractions.map((item) => (
-            <Card key={item.id} attraction={item} state={selectedState} />
+            <Card 
+              key={item.id} 
+              attraction={item} 
+              state={selectedState}
+              isFavorite={favorites.has(item.id)}
+              onToggleFavorite={() => toggleFavorite(item.id)}
+            />
           ))}
           <Pager 
             currentPage={currentPage} 

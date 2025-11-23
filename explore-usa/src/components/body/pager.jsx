@@ -7,7 +7,7 @@ export default function Pager({currentPage, setCurrentPage,length}) {
       }
 
     return (
-        <div className=" flex overflow-x-auto sm:justify-center">
+        <div className="pagination-wrapper">
         <Pagination currentPage={currentPage} onPageChange={handlePageChange} totalPages={length} showIcons lightmode/>
         </div>
     )
