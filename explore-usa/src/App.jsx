@@ -8,6 +8,8 @@ import Filter from '/src/components/filters/Filter.jsx'
 import Body from '/src/components/body/Body.jsx'
 import Header from '/src/components/body/Header.jsx'
 import Featured from '/src/components/body/Featured.jsx'
+import FavoritesButton from '/src/components/favorites/FavoritesButton.jsx'
+import FavoritesPanel from '/src/components/favorites/FavoritesPanel.jsx'
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   const [selectedPrice, setSelectedPrice] = useState("Any");
   const [searchTerm, setSearchTerm] = useState(''); 
   const [favorites, setFavorites] = useState(new Set());
+  const [showFavorites, setShowFavorites] = useState(false);
 
   const toggleFavorite = (attractionId) => {
     setFavorites(prev => {
@@ -59,6 +62,18 @@ function App() {
           searchTerm={searchTerm}
           favorites={favorites}
           toggleFavorite={toggleFavorite}
+        />
+        
+        {/* Favorites Button and Panel */}
+        <FavoritesButton 
+          favorites={favorites} 
+          onClick={() => setShowFavorites(!showFavorites)}
+        />
+        <FavoritesPanel
+          favorites={favorites}
+          toggleFavorite={toggleFavorite}
+          isOpen={showFavorites}
+          onClose={() => setShowFavorites(false)}
         />
    </> 
    
