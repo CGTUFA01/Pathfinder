@@ -15,7 +15,7 @@ export default function Body({selectedState,
     let attractions = attractionsData[selectedState]
     
     const [currentPage, setCurrentPage] = useState(1);
-    const [attractionsPerPage] = useState(10);
+    const [attractionsPerPage] = useState(8);
 
     
     const filteredAttractions = attractions.filter((item) => {

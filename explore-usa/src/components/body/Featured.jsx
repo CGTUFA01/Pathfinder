@@ -4,7 +4,8 @@ import FeaturedCard from './FeaturedCard';
 export default function Featured({selectedState, favorites, toggleFavorite}){
     const StartData = attractionsData[selectedState]
 
-    const FeaturedData = StartData.filter((item) => (item.id===54 || item.id===55 || item.id===56 || item.id ==57 ))
+    const FeaturedData = StartData.sort(() => Math.random() - 0.5).slice(0,5);
+
     return(
     <div className='Featured-Attractions'>
         <div className='Featured-Title-Wrapper'>

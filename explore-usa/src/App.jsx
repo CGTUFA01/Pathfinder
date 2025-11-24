@@ -10,6 +10,7 @@ import Header from '/src/components/body/Header.jsx'
 import Featured from '/src/components/body/Featured.jsx'
 import FavoritesButton from '/src/components/favorites/FavoritesButton.jsx'
 import FavoritesPanel from '/src/components/favorites/FavoritesPanel.jsx'
+import MainHeader from '/src/components/layout/MainHeader.jsx'
 
 
 function App() {
@@ -35,6 +36,11 @@ function App() {
 
   return (
     <>
+        <MainHeader 
+          favorites={favorites}
+          onFavoritesClick={() => setShowFavorites(!showFavorites)}
+          
+        />
         <Header selectedState={selectedState} setSelectedState={setSelectedState}/>
 
         <Featured 

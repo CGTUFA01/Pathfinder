@@ -6,8 +6,7 @@ export default function Header({selectedState}){
         className="attraction-header"
         style={{
         backgroundImage: `url(${Kentucky})`,
-        backgroundSize: "70%",
-        backgroundPosition: "center 35%",
+        backgroundPosition: "center center",
       
 
     }}
