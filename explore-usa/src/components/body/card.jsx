@@ -10,7 +10,7 @@ export default function Card({ attraction, state, isFavorite, onToggleFavorite }
       <div className="card">
         <div
           className="card-image">
-          <img src={attraction.image} alt={attraction.name} />
+          <img src={attraction.image} alt={attraction.name} loading="lazy" />
             
         <div>
             <Heart isFavorite={isFavorite} onToggle={onToggleFavorite}/>
@@ -20,9 +20,11 @@ export default function Card({ attraction, state, isFavorite, onToggleFavorite }
         
         <div className="card-info">
           <p className="card-category">{attraction.category} • {attraction.price}</p>
-          <img className="location_sym" src={location_symbol}/>
           <h2 className="card-title">{attraction.name}</h2>
+          <div className='card-location'>
+          <img className="location_sym" src={location_symbol}/>
           <p className="card-city">{attraction.city}, {state}</p>
+          </div>
           <p className="card-desc">{attraction.description}</p>
           <button className="More-Detail-Wrapper" >
             <h5 className="More-Detail">More Details</h5>

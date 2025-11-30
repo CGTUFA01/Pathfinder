@@ -12,7 +12,7 @@ export default function Body({selectedState,
           toggleFavorite}) 
     
     {
-    let attractions = attractionsData[selectedState]
+    let attractions = attractionsData[selectedState] || []
     
     const [currentPage, setCurrentPage] = useState(1);
     const [attractionsPerPage] = useState(8);

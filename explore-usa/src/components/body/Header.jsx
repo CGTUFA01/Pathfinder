@@ -1,14 +1,18 @@
-import Kentucky from '/src/images/Kentucky.png'
+import stateSkylineData from '/src/data/StateSkylineData.js'
+
 export default function Header({selectedState}){
+    // Get the skyline image for the selected state, fallback to a default if not found
+    const skylineImage = (stateSkylineData[selectedState] && stateSkylineData[selectedState].trim()) || stateSkylineData['California'];
 
     return(
         <div
         className="attraction-header"
         style={{
-        backgroundImage: `url(${Kentucky})`,
+        backgroundImage: `url(${skylineImage})`,
         backgroundPosition: "center center",
-      
-
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        willChange: "background-image",
     }}
     > 
     <div className="overlay"></div>

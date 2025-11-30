@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import attractionsData from '/src/data/AttractionData.js'
 import FeaturedCard from './FeaturedCard';
 export default function Featured({selectedState, favorites, toggleFavorite}){
-    const StartData = attractionsData[selectedState]
+    const StartData = attractionsData[selectedState] || []
 
-    const FeaturedData = StartData.sort(() => Math.random() - 0.5).slice(0,5);
+    // Memoize the random sort so it only re-sorts when selectedState changes, not when favorites change
+    const FeaturedData = useMemo(() => {
+        return [...StartData].sort(() => Math.random() - 0.5).slice(0,5);
+    }, [selectedState]);
 
     return(
     <div className='Featured-Attractions'>

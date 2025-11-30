@@ -10,7 +10,7 @@ export default function FeaturedCard({ attraction, state, isFavorite, onToggleFa
       <div className="small-card">
 
         <div className="small-card-image">
-          <img src={attraction.image} alt={attraction.name} />
+          <img src={attraction.image} alt={attraction.name} loading="lazy" />
           <Heart isFavorite={isFavorite} onToggle={onToggleFavorite}/>
         </div>
         

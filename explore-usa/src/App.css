@@ -41,6 +41,16 @@ body {
   text-align: center;
   color: white;
   overflow: hidden;
+  /* Improve image quality and centering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* Better image scaling */
+  background-origin: padding-box;
+  background-clip: padding-box;
 }
 
 .header-content{
