@@ -66,6 +66,9 @@
   transition: color 0.2s ease;
   position: relative;
   padding: 0.5rem 0;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1.5;
 }
 
 .main-header-link:hover {
@@ -85,6 +88,102 @@
 
 .main-header-link:hover::after {
   width: 100%;
+}
+
+.main-header-states-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  padding-bottom: 0;
+}
+
+.main-header-states-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b5563;
+  padding: 0.5rem 0;
+  margin: 0;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1.5;
+}
+
+.main-header-states-btn:hover {
+  color: #667eea;
+}
+
+.main-header-states-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #667eea;
+  transition: width 0.3s ease;
+}
+
+.main-header-states-btn:hover::after {
+  width: 100%;
+}
+
+.main-header-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  min-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  white-space: nowrap;
+}
+
+/* Invisible bridge area to prevent dropdown from closing when moving mouse */
+.main-header-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -0.25rem;
+  left: -10px;
+  right: -10px;
+  height: 0.25rem;
+  background: transparent;
+}
+
+.main-header-dropdown-item {
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4b5563;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.main-header-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.main-header-dropdown-item:hover {
+  background-color: #f9fafb;
+  color: #667eea;
 }
 
 .main-header-actions {

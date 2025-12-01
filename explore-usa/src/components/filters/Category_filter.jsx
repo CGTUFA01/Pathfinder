@@ -28,7 +28,7 @@ export default function Category_filter({setSelectedCategories,selectedCategorie
     return(
 
        <Select
-    defaultValue={[options1[0] ]}
+    
     isMulti
     onChange={changeCate}
     name="colors"

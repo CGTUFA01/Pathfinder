@@ -1,24 +1,12 @@
-
-// In App.jsx or index.jsx
 import React, { useState } from "react";
+import { Routes, Route, useParams, Navigate } from "react-router-dom";
 import "./App.css"; 
-import Card from '/src/components/body/card.jsx'
-import '/GGBRIDGE.jpg'
-import Filter from '/src/components/filters/Filter.jsx'
-import Body from '/src/components/body/Body.jsx'
-import Header from '/src/components/body/Header.jsx'
-import Featured from '/src/components/body/Featured.jsx'
-import FavoritesButton from '/src/components/favorites/FavoritesButton.jsx'
-import FavoritesPanel from '/src/components/favorites/FavoritesPanel.jsx'
 import MainHeader from '/src/components/layout/MainHeader.jsx'
-
+import HomePage from '/src/components/Front-Page/HomePage.jsx'
+import StateView from '/src/components/StateView.jsx'
+import AttractionDetails from '/src/components/AttractionDetails.jsx'
 
 function App() {
-  const [selectedState, setSelectedState] = useState("Kentucky"); 
-  const [selectedCity, setSelectedCity] = useState("Any");
-  const [selectedCategory, setSelectedCategory] = useState([]);
-  const [selectedPrice, setSelectedPrice] = useState("Any");
-  const [searchTerm, setSearchTerm] = useState(''); 
   const [favorites, setFavorites] = useState(new Set());
   const [showFavorites, setShowFavorites] = useState(false);
 
@@ -34,62 +22,39 @@ function App() {
     });
   };
 
+  // Component to handle state route with URL parameter
+  function StateViewWrapper() {
+    const { stateName } = useParams();
+    const decodedStateName = stateName ? decodeURIComponent(stateName) : "Kentucky";
+    
+    return (
+      <StateView
+        selectedState={decodedStateName}
+        favorites={favorites}
+        toggleFavorite={toggleFavorite}
+        setShowFavorites={setShowFavorites}
+        showFavorites={showFavorites}
+      />
+    );
+  }
+
   return (
     <>
-        <MainHeader 
-          favorites={favorites}
-          onFavoritesClick={() => setShowFavorites(!showFavorites)}
-          
+      <MainHeader 
+        favorites={favorites}
+        onFavoritesClick={() => setShowFavorites(!showFavorites)}
+      />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/state/:stateName" element={<StateViewWrapper />} />
+        <Route 
+          path="/attraction/:id" 
+          element={<AttractionDetails favorites={favorites} toggleFavorite={toggleFavorite} />} 
         />
-        <Header selectedState={selectedState} setSelectedState={setSelectedState}/>
-
-        <Featured 
-          selectedState={selectedState}
-          favorites={favorites}
-          toggleFavorite={toggleFavorite}
-        />
-        <hr/>
-        <Filter
-          selectedCity={selectedCity}
-          setSelectedCity={setSelectedCity}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          selectedPrice={selectedPrice}
-          setSelectedPrice={setSelectedPrice}
-          state={selectedState} 
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
-        <Body
-          selectedState={selectedState}
-          selectedCity={selectedCity}
-          selectedCategory={selectedCategory}
-          selectedPrice={selectedPrice}
-          searchTerm={searchTerm}
-          favorites={favorites}
-          toggleFavorite={toggleFavorite}
-        />
-        
-        {/* Favorites Button and Panel */}
-        <FavoritesButton 
-          favorites={favorites} 
-          onClick={() => setShowFavorites(!showFavorites)}
-        />
-        <FavoritesPanel
-          favorites={favorites}
-          toggleFavorite={toggleFavorite}
-          isOpen={showFavorites}
-          onClose={() => setShowFavorites(false)}
-        />
-   </> 
-   
-     
-
-    
-
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
 }
-
-
 
 export default App

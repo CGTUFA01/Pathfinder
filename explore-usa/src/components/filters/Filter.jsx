@@ -21,13 +21,16 @@ export default function Filter({selectedCity,
             </div>
 
             <div className="category-wrapper">
+            <label className="filter-label">Category</label>
             <Category_filter selectedCategory={selectedCategory} setSelectedCategories={setSelectedCategory}/>
             </div>
         
             <div className="price-wrapper">
+            <label className="filter-label">Price</label>
             <Price_Filter selectedPrice={selectedPrice} setSelectedPrice={setSelectedPrice}/>
             </div>
             <div className="city-wrapper">
+            <label className="filter-label">City</label>
             <CityFilter state={state} selectedCity={selectedCity} setSelectedCity={setSelectedCity}/>
             </div>
             </div>

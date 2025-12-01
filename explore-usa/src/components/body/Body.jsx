@@ -1,6 +1,6 @@
 import Card from '/src/components/body/card.jsx'
 import attractionsData from '/src/data/AttractionData.js'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Pager from '/src/components/body/Pager.jsx'
 import './body.css'
 export default function Body({selectedState,
@@ -12,24 +12,25 @@ export default function Body({selectedState,
           toggleFavorite}) 
     
     {
-    let attractions = attractionsData[selectedState] || []
-    
     const [currentPage, setCurrentPage] = useState(1);
     const [attractionsPerPage] = useState(8);
 
-    
-    const filteredAttractions = attractions.filter((item) => {
-    const matchesSearch = searchTerm 
-      ? item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      : true;
+    // Memoize filtered attractions to prevent reordering when favorites change
+    const filteredAttractions = useMemo(() => {
+      const attractions = attractionsData[selectedState] || [];
+      return attractions.filter((item) => {
+        const matchesSearch = searchTerm 
+          ? item.name.toLowerCase().includes(searchTerm.toLowerCase())
+          : true;
 
-    return (
-      matchesSearch &&
-      (selectedCity === "Any" || item.city === selectedCity) &&
-      (selectedCategory.length === 0 || selectedCategory.includes(item.category)) &&
-      (selectedPrice === "Any" || item.price === selectedPrice)
-    )
-  })   
+        return (
+          matchesSearch &&
+          (selectedCity === "Any" || item.city === selectedCity) &&
+          (selectedCategory.length === 0 || selectedCategory.includes('Any') || selectedCategory.includes(item.category)) &&
+          (selectedPrice === "Any" || item.price === selectedPrice)
+        )
+      })
+    }, [selectedState, searchTerm, selectedCity, selectedCategory, selectedPrice])   
     useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, selectedCity, selectedCategory, selectedPrice]);

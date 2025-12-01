@@ -1,8 +1,46 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Globe } from 'lucide-react';
+import attractionsData from '../../data/AttractionData.js';
 import './MainHeader.css';
 
 export default function MainHeader({ favorites, onFavoritesClick}) {
+  const [showStatesDropdown, setShowStatesDropdown] = useState(false);
+  const navigate = useNavigate();
+  const allStates = Object.keys(attractionsData).sort();
+  const timeoutRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const handleStateSelect = (state) => {
+    navigate(`/state/${encodeURIComponent(state)}`);
+    setShowStatesDropdown(false);
+  };
+
+  const handleMouseEnter = () => {
+    // Clear any pending close timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setShowStatesDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a small delay before closing to allow mouse movement to dropdown
+    timeoutRef.current = setTimeout(() => {
+      setShowStatesDropdown(false);
+    }, 150); // 150ms delay
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <header className="main-header">
       <div className="main-header-container">
@@ -14,9 +52,34 @@ export default function MainHeader({ favorites, onFavoritesClick}) {
 
         {/* Navigation Section */}
         <nav className="main-header-nav">
-          <a href="#" className="main-header-link">Home</a>
-          <a href="#" className="main-header-link">States</a>
-          <a href="#" className="main-header-link">About</a>
+          <a href="/" className="main-header-link">Home</a>
+          <div 
+            ref={dropdownRef}
+            className="main-header-states-dropdown"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <button className="main-header-link main-header-states-btn">
+              States
+            </button>
+            {showStatesDropdown && (
+              <div 
+                className="main-header-dropdown-menu"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {allStates.map(state => (
+                  <button
+                    key={state}
+                    onClick={() => handleStateSelect(state)}
+                    className="main-header-dropdown-item"
+                  >
+                    {state}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Actions Section */}

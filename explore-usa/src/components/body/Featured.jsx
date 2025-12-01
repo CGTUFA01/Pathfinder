@@ -2,11 +2,13 @@ import React, { useMemo } from 'react';
 import attractionsData from '/src/data/AttractionData.js'
 import FeaturedCard from './FeaturedCard';
 export default function Featured({selectedState, favorites, toggleFavorite}){
-    const StartData = attractionsData[selectedState] || []
-
-    // Memoize the random sort so it only re-sorts when selectedState changes, not when favorites change
+    // Select specific attractions: 2nd, 7th, 15th, 16th, and 20th (0-indexed: 1, 6, 14, 15, 19)
     const FeaturedData = useMemo(() => {
-        return [...StartData].sort(() => Math.random() - 0.5).slice(0,5);
+        const StartData = attractionsData[selectedState] || [];
+        const indices = [1, 6, 14, 15, 19]; // 0-indexed positions for 2nd, 7th, 15th, 16th, 20th
+        return indices
+            .map(index => StartData[index])
+            .filter(Boolean); // Remove any undefined entries if the array is shorter
     }, [selectedState]);
 
     return(

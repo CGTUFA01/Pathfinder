@@ -94,6 +94,8 @@
   margin-left: 1rem;
   width: 500px;
   margin-top: 13px;
+  display: flex;
+  flex-direction: column;
 }
 
 .price-wrapper {
@@ -101,6 +103,18 @@
   margin-left: 1rem;
   width: 150px;
   margin-top: 13px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Filter Labels */
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* React Select Custom Styles */

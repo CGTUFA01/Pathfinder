@@ -1,1 +1,14 @@
+.no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 3rem 2rem;
+  text-align: center;
+}
 
+.no-results p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin: 0;
+}

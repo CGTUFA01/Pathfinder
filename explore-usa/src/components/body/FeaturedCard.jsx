@@ -1,16 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Heart from "/src/components/body/Heart.jsx";
 import location_symbol from "/location.svg";
 import GGBRIDGE from '/GGBRIDGE.jpg'
 import './FeaturedCard.css'
 export default function FeaturedCard({ attraction, state, isFavorite, onToggleFavorite }) {
+    const navigate = useNavigate();
   
   return (
   
       <div className="small-card">
 
         <div className="small-card-image">
-          <img src={attraction.image} alt={attraction.name} loading="lazy" />
+          <img 
+            src={attraction.image} 
+            alt={attraction.name} 
+            loading="lazy"
+            onError={(e) => {
+              e.target.src = "https://picsum.photos/330/230";
+            }}
+          />
           <Heart isFavorite={isFavorite} onToggle={onToggleFavorite}/>
         </div>
         
@@ -24,9 +33,12 @@ export default function FeaturedCard({ attraction, state, isFavorite, onToggleFa
           <p className="small-card-city">{attraction.city}, {state}</p>
           </div>
           
-          <p className="small-card-desc">{attraction.description}</p>
+          <p className="small-card-desc">{attraction.description.split('.')[0] + (attraction.description.includes('.') ? '.' : '')}</p>
           <hr className="line-hr"/>
-          <button className="small-More-Detail-Wrapper" >
+          <button 
+            className="small-More-Detail-Wrapper"
+            onClick={() => navigate(`/attraction/${attraction.id}`)}
+          >
             <h5 className="small-More-Detail">More Details</h5>
             </button>
 

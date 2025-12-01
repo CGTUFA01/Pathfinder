@@ -41,16 +41,23 @@ body {
   text-align: center;
   color: white;
   overflow: hidden;
-  /* Improve image quality and centering */
+  /* Improve image quality with better rendering */
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto;
   -ms-interpolation-mode: bicubic;
+  /* Force hardware acceleration for smoother rendering */
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* Better image scaling */
+  will-change: background-image;
+  /* Better image scaling - use contain for better quality on smaller images */
   background-origin: padding-box;
   background-clip: padding-box;
+  /* Prevent image blurring and improve sharpness */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Add a subtle filter to enhance image quality */
+  filter: contrast(1.05) brightness(1.02);
 }
 
 .header-content{

@@ -8,12 +8,14 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "fetch-images": "node scripts/fetchImages.js"
+    "fetch-images": "node scripts/fetchImages.js",
+    "expand-descriptions": "node scripts/expandDescriptions.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
     "bootstrap": "^5.3.8",
     "daisyui": "^5.3.7",
+    "dotenv": "^17.2.3",
     "flowbite": "^3.1.2",
     "flowbite-react": "^0.12.9",
     "framer-motion": "^12.23.24",
