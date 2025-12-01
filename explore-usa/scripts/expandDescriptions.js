@@ -5,8 +5,6 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const GOOGLE_API_KEY = 'AIzaSyCz1hAG6cK6GHMuf6uEVzHgRZH3jNrtrY4';
-
 // Read the AttractionData.js file
 const dataPath = path.join(__dirname, '../src/data/AttractionData.js');
 const originalContent = fs.readFileSync(dataPath, 'utf8');
